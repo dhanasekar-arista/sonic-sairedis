@@ -179,10 +179,10 @@ TEST_F(TestPortSerdesAttr, CollectDataAndValidateCountersDB)
 
     usleep(1000 * 1050); // 1.05 seconds to ensure at least one poll cycle
 
-    // Connect to COUNTERS_DB and verify entries
+    // Connect to COUNTERS_DB and verify entries in PORT_SERDES_ATTR_TABLE
     swss::DBConnector db("COUNTERS_DB", 0);
     swss::RedisPipeline pipeline(&db);
-    swss::Table countersTable(&pipeline, COUNTERS_TABLE, false);
+    swss::Table countersTable(&pipeline, PORT_SERDES_ATTR_TABLE, false);
 
     std::string expectedKey = toOid(testPortOid);
 
